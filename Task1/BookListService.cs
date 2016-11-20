@@ -23,7 +23,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Add instance of Book to BookList.
+        /// Add <see cref="book"> to BookList.
         /// </summary>
         /// <param name="book">Instance of Book</param>
         /// <exception cref="ArgumentNullException">
@@ -38,6 +38,24 @@ namespace Task1
             if (BookList.Contains(book))
                 throw new ArgumentException($"{book.ToString()} already exists.");
             BookList.Add(book);
+        }
+
+        /// <summary>
+        /// Remove <see cref="book"> to BookList.
+        /// </summary>
+        /// <param name="book">Instance of Book</param>
+        /// <exception cref="ArgumentNullException">
+        /// Throws when <see cref="book"> is null.
+        /// </exception>
+        /// <exception cref="ArgumentException">
+        /// Throws when <see cref="book"> is not in BookList.
+        /// </exception>
+        public void RemoveBook(Book book)
+        {
+            if (book == null) throw new ArgumentNullException(nameof(book));
+            if (!BookList.Contains(book))
+                throw new ArgumentException($"{book.ToString()} is not in list.");
+            BookList.Remove(book);
         }
 
         public IEnumerator<Book> GetEnumerator() =>

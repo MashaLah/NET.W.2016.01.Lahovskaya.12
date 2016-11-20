@@ -51,6 +51,11 @@ namespace Task1UI
             bookList.AddBook(fourthBook);
             bookList.AddBook(fifthBook);
             foreach (Book b in bookList) Console.WriteLine(b);
+
+            Console.WriteLine();
+            bookList.RemoveBook(firstBook);
+            foreach (Book b in bookList) Console.WriteLine(b);
+
             Console.ReadLine();
         }
     }
