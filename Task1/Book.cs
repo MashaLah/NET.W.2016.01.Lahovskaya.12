@@ -78,7 +78,9 @@ namespace Task1
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
+            //if (obj.GetType() != GetType()) return false;
+            Book book = obj as Book;
+            if (book == null) return false;
             return Equals((Book)obj);
         }
 
