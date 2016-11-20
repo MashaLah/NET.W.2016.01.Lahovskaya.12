@@ -39,6 +39,12 @@ namespace Task1UI
             Console.WriteLine($"{fifthBook.ToString()} compare to");
             Console.WriteLine($"{ fourthBook.ToString()}");
             Console.WriteLine(fifthBook.CompareTo(fourthBook));
+
+            Console.WriteLine($"first {firstBook.GetHashCode()}");
+            Console.WriteLine($"second {secondBook.GetHashCode()}");
+            Console.WriteLine($"third {thirdBook.GetHashCode()}");
+            Console.WriteLine($"fourth {fourthBook.GetHashCode()}");
+            Console.WriteLine($"fifth {fifthBook.GetHashCode()}");
             Console.ReadLine();
         }
     }

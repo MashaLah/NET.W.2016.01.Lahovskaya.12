@@ -67,7 +67,9 @@ namespace Task1
         /// </summary>
         /// <returns>Hash code of Book.</returns>
         public override int GetHashCode() =>
-            (Author.GetHashCode() * 31 + Title.GetHashCode() * 31 + Genre.GetHashCode() * 31) ^ Year;
+            (Author.ToUpper().GetHashCode() * 31 + 
+            Title.ToUpper().GetHashCode() * 31 + 
+            Genre.ToUpper().GetHashCode() * 31) ^ Year;
 
         /// <summary>
         /// Check if <see cref="obj"/> and this book are equal.
