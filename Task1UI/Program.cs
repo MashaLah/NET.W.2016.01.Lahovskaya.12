@@ -45,6 +45,12 @@ namespace Task1UI
             Console.WriteLine($"third {thirdBook.GetHashCode()}");
             Console.WriteLine($"fourth {fourthBook.GetHashCode()}");
             Console.WriteLine($"fifth {fifthBook.GetHashCode()}");
+
+            BookListService bookList = new BookListService();
+            bookList.AddBook(firstBook);
+            bookList.AddBook(fourthBook);
+            bookList.AddBook(fifthBook);
+            
             Console.ReadLine();
         }
     }
