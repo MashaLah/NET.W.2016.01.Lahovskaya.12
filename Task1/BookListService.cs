@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Task1
 {
-    public class BookListService
+    public class BookListService : IEnumerable<Book>
     {
         /// <summary>
         /// List of Books.
@@ -38,5 +39,10 @@ namespace Task1
                 throw new ArgumentException($"{book.ToString()} already exists.");
             BookList.Add(book);
         }
+
+        public IEnumerator<Book> GetEnumerator() =>
+            BookList.AsEnumerable().GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

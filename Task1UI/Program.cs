@@ -50,7 +50,7 @@ namespace Task1UI
             bookList.AddBook(firstBook);
             bookList.AddBook(fourthBook);
             bookList.AddBook(fifthBook);
-            
+            foreach (Book b in bookList) Console.WriteLine(b);
             Console.ReadLine();
         }
     }
