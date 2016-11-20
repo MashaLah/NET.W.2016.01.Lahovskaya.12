@@ -41,7 +41,7 @@ namespace Task1
         }
 
         /// <summary>
-        /// Remove <see cref="book"> to BookList.
+        /// Removes <see cref="book"> to BookList.
         /// </summary>
         /// <param name="book">Instance of Book</param>
         /// <exception cref="ArgumentNullException">
@@ -56,6 +56,25 @@ namespace Task1
             if (!BookList.Contains(book))
                 throw new ArgumentException($"{book.ToString()} is not in list.");
             BookList.Remove(book);
+        }
+
+        /// <summary>
+        /// Searches for first element that matches the conditions defined by the specified predicate.
+        /// </summary>
+        /// <param name="condition">
+        /// The Predicat delegate that defines the conditions of the element to search for.
+        /// </param>
+        /// <exception cref="ArgumentNullException">
+        /// <see cref="condition"> is null.
+        /// </exception>
+        /// <returns>
+        /// First element that matches the conditions defined by the specified predicate, if found; 
+        /// otherwise, null.
+        /// </returns>
+        public Book FindBookByTag(Predicate<Book> condition)
+        {
+            if (condition==null) throw new ArgumentNullException(nameof(condition));
+            return BookList.Find(condition);
         }
 
         public IEnumerator<Book> GetEnumerator() =>

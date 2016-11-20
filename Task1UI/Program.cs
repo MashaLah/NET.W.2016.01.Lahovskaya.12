@@ -56,6 +56,11 @@ namespace Task1UI
             bookList.RemoveBook(firstBook);
             foreach (Book b in bookList) Console.WriteLine(b);
 
+            Console.WriteLine("FindBookByTag");
+            Console.WriteLine(bookList.FindBookByTag(x => x.Author == "Tolstoy"));
+            Console.WriteLine(bookList.FindBookByTag(x => x.Genre.Contains("Satirical")));
+            Console.WriteLine(bookList.FindBookByTag(x => x.Year < 2000));
+
             Console.ReadLine();
         }
     }
