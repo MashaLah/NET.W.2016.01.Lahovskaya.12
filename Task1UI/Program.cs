@@ -56,12 +56,56 @@ namespace Task1UI
             bookList.RemoveBook(firstBook);
             foreach (Book b in bookList) Console.WriteLine(b);
 
+            bookList.AddBook(firstBook);
+
+            Console.WriteLine();
             Console.WriteLine("FindBookByTag");
             Console.WriteLine(bookList.FindBookByTag(x => x.Author == "Tolstoy"));
             Console.WriteLine(bookList.FindBookByTag(x => x.Genre.Contains("Satirical")));
             Console.WriteLine(bookList.FindBookByTag(x => x.Year < 2000));
 
+            Console.WriteLine();
+            Console.WriteLine("SortByTitle");
+            bookList.SortBooksByTag(SortByTitle);
+            foreach (Book b in bookList) Console.WriteLine(b);
+
+            Console.WriteLine();
+            Console.WriteLine("SortByYear");
+            bookList.SortBooksByTag(SortByYear);
+            foreach (Book b in bookList) Console.WriteLine(b);
+
+            Console.WriteLine();
+            Console.WriteLine("SortByGenre");
+            bookList.SortBooksByTag(SortByGenre);
+            foreach (Book b in bookList) Console.WriteLine(b);
+
             Console.ReadLine();
         }
+            /// <summary>
+            /// For SortBooksByTag() in BookListService.
+            /// </summary>
+            /// <param name="firstTitle">Title of book.</param>
+            /// <param name="secondTitle">Title of book.</param>
+            /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
+        public static int SortByTitle(Book firstBook, Book secondBook) =>
+            firstBook.Title.CompareTo(secondBook.Title);
+
+        /// <summary>
+        /// For SortBooksByTag() in BookListService.
+        /// </summary>
+        /// <param name="firstYear">Year</param>
+        /// <param name="secondYear">Year</param>
+        /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
+        public static int SortByYear(Book firstBook, Book secondBook) =>
+            firstBook.Year.CompareTo(secondBook.Year);
+
+        /// <summary>
+        /// For SortBooksByTag() in BookListService.
+        /// </summary>
+        /// <param name="firstGenre">Genre of Book</param>
+        /// <param name="secondGenre">Genre of Book</param>
+        /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
+        public static int SortByGenre(Book firstBook, Book secondBook) =>
+            firstBook.Genre.CompareTo(secondBook.Genre);
     }
 }

@@ -83,7 +83,8 @@ namespace Task1
             //if (obj.GetType() != GetType()) return false;
             Book book = obj as Book;
             if (book == null) return false;
-            return Equals((Book)obj);
+            //return Equals((Book)obj);
+            return Equals(book);
         }
 
         /// <summary>
@@ -139,5 +140,7 @@ namespace Task1
                 throw new ArgumentException("Object is not a Book");
             return CompareTo(book);
         }
+
+        
     }
 }

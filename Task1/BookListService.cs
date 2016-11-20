@@ -77,6 +77,19 @@ namespace Task1
             return BookList.Find(condition);
         }
 
+        /// <summary>
+        /// Sorts BookList by tag.
+        /// </summary>
+        /// <param name="condition">Tag to compare.</param>
+        /// <exception cref="ArgumentNullException">
+        /// <see cref="condition"> is null.
+        /// </exception>
+        public void SortBooksByTag(Comparison<Book> condition)
+        {
+            if (condition == null) throw new ArgumentNullException(nameof(condition));
+            BookList.Sort(condition);
+        }
+
         public IEnumerator<Book> GetEnumerator() =>
             BookList.AsEnumerable().GetEnumerator();
 
