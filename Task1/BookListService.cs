@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Task1
 {
-    public class BookListService : IEnumerable<Book>
+    public class BookListService
     {
         /// <summary>
         /// List of Books.
@@ -89,10 +89,5 @@ namespace Task1
             if (condition == null) throw new ArgumentNullException(nameof(condition));
             BookList.Sort(condition);
         }
-
-        public IEnumerator<Book> GetEnumerator() =>
-            BookList.AsEnumerable().GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }

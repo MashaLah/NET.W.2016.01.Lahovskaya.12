@@ -50,11 +50,9 @@ namespace Task1UI
             bookList.AddBook(firstBook);
             bookList.AddBook(fourthBook);
             bookList.AddBook(fifthBook);
-            foreach (Book b in bookList) Console.WriteLine(b);
 
             Console.WriteLine();
             bookList.RemoveBook(firstBook);
-            foreach (Book b in bookList) Console.WriteLine(b);
 
             bookList.AddBook(firstBook);
 
@@ -67,17 +65,14 @@ namespace Task1UI
             Console.WriteLine();
             Console.WriteLine("SortByTitle");
             bookList.SortBooksByTag(SortByTitle);
-            foreach (Book b in bookList) Console.WriteLine(b);
 
             Console.WriteLine();
             Console.WriteLine("SortByYear");
             bookList.SortBooksByTag(SortByYear);
-            foreach (Book b in bookList) Console.WriteLine(b);
 
             Console.WriteLine();
             Console.WriteLine("SortByGenre");
             bookList.SortBooksByTag(SortByGenre);
-            foreach (Book b in bookList) Console.WriteLine(b);
 
             Console.ReadLine();
         }

@@ -114,14 +114,7 @@ namespace Task1
         public int CompareTo(Book other)
         {
             if (other == null) return 1;
-            if (Equals(other)) return 0;
-            if (Author.ToUpper().CompareTo(other.Author.ToUpper()) != 0)
-                return Author.ToUpper().CompareTo(other.Author.ToUpper());
-            if (Title.ToUpper().CompareTo(other.Title.ToUpper()) != 0)
-                return Title.ToUpper().CompareTo(other.Title.ToUpper());
-            if (Year.CompareTo(other.Year) != 0)
-                return Year.CompareTo(other.Year);
-            return Genre.ToUpper().CompareTo(other.Genre.ToUpper());
+            return Author.ToUpper().CompareTo(other.Author.ToUpper());
         }
 
         /// <summary>
