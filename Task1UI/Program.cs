@@ -64,43 +64,17 @@ namespace Task1UI
 
             Console.WriteLine();
             Console.WriteLine("SortByTitle");
-            bookList.SortBooksByTag(SortByTitle);
+            bookList.SortBooksByTag((x, y) => x.Title.CompareTo(y.Title));
 
             Console.WriteLine();
             Console.WriteLine("SortByYear");
-            bookList.SortBooksByTag(SortByYear);
+            bookList.SortBooksByTag((x, y) => x.Year.CompareTo(y.Year));
 
             Console.WriteLine();
             Console.WriteLine("SortByGenre");
-            bookList.SortBooksByTag(SortByGenre);
+            bookList.SortBooksByTag((x, y) => x.Genre.CompareTo(y.Genre));
 
             Console.ReadLine();
         }
-            /// <summary>
-            /// For SortBooksByTag() in BookListService.
-            /// </summary>
-            /// <param name="firstTitle">Title of book.</param>
-            /// <param name="secondTitle">Title of book.</param>
-            /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
-        public static int SortByTitle(Book firstBook, Book secondBook) =>
-            firstBook.Title.CompareTo(secondBook.Title);
-
-        /// <summary>
-        /// For SortBooksByTag() in BookListService.
-        /// </summary>
-        /// <param name="firstYear">Year</param>
-        /// <param name="secondYear">Year</param>
-        /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
-        public static int SortByYear(Book firstBook, Book secondBook) =>
-            firstBook.Year.CompareTo(secondBook.Year);
-
-        /// <summary>
-        /// For SortBooksByTag() in BookListService.
-        /// </summary>
-        /// <param name="firstGenre">Genre of Book</param>
-        /// <param name="secondGenre">Genre of Book</param>
-        /// <returns>-1 if precedes, 0 if same, 1 if follows</returns>
-        public static int SortByGenre(Book firstBook, Book secondBook) =>
-            firstBook.Genre.CompareTo(secondBook.Genre);
     }
 }
