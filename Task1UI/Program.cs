@@ -66,13 +66,18 @@ namespace Task1UI
             Console.WriteLine("SortByTitle");
             bookList.SortBooksByTag((x, y) => x.Title.CompareTo(y.Title));
 
+            BookListStorage storage = new BookListStorage("booklist.bin");
+            bookList.Save(storage);
+
             Console.WriteLine();
             Console.WriteLine("SortByYear");
             bookList.SortBooksByTag((x, y) => x.Year.CompareTo(y.Year));
+            bookList.Save(storage);
 
             Console.WriteLine();
             Console.WriteLine("SortByGenre");
             bookList.SortBooksByTag((x, y) => x.Genre.CompareTo(y.Genre));
+            bookList.Save(storage);
 
             Console.ReadLine();
         }

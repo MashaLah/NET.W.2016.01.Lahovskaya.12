@@ -12,14 +12,14 @@ namespace Task1
         /// <summary>
         /// List of Books.
         /// </summary>
-        private List<Book> BookList;
+        private List<Book> bookList;
 
         /// <summary>
         /// Constructor. Creates new BookList.
         /// </summary>
         public BookListService()
         {
-            BookList = new List<Book>();
+            bookList = new List<Book>();
         }
 
         /// <summary>
@@ -35,9 +35,9 @@ namespace Task1
         public void AddBook(Book book)
         {
             if (book == null) throw new ArgumentNullException(nameof(book));
-            if (BookList.Contains(book))
+            if (bookList.Contains(book))
                 throw new ArgumentException($"{book.ToString()} already exists.");
-            BookList.Add(book);
+            bookList.Add(book);
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace Task1
         public void RemoveBook(Book book)
         {
             if (book == null) throw new ArgumentNullException(nameof(book));
-            if (!BookList.Contains(book))
+            if (!bookList.Contains(book))
                 throw new ArgumentException($"{book.ToString()} is not in list.");
-            BookList.Remove(book);
+            bookList.Remove(book);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Task1
         public Book FindBookByTag(Predicate<Book> condition)
         {
             if (condition==null) throw new ArgumentNullException(nameof(condition));
-            return BookList.Find(condition);
+            return bookList.Find(condition);
         }
 
         /// <summary>
@@ -87,7 +87,35 @@ namespace Task1
         public void SortBooksByTag(Comparison<Book> condition)
         {
             if (condition == null) throw new ArgumentNullException(nameof(condition));
-            BookList.Sort(condition);
+            bookList.Sort(condition);
+        }
+
+        /// <summary>
+        /// Save <see cref="bookList"> in storage.
+        /// </summary>
+        /// <param name="storage">Storage.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Throws when <see cref="storage"> is null.
+        /// </exception>
+        public void Save(IBookListStorage storage)
+        {
+            if (storage == null)
+                throw new ArgumentNullException(nameof(storage));
+            storage.SaveBookList(bookList);
+        }
+
+        /// <summary>
+        /// Load collection to <see cref="bookList"> from storage.
+        /// </summary>
+        /// <param name="storage">Storage.</param>
+        /// <exception cref="ArgumentNullException">
+        /// Throws when <see cref="storage"> is null.
+        /// </exception>
+        public void Load(IBookListStorage storage)
+        {
+            if (storage == null)
+                throw new ArgumentNullException(nameof(storage));
+            bookList = new List<Book>(storage.LoadBookList());
         }
     }
 }
