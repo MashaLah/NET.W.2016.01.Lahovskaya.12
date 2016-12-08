@@ -79,6 +79,16 @@ namespace Task1UI
             bookList.SortBooksByTag((x, y) => x.Genre.CompareTo(y.Genre));
             bookList.Save(storage);
 
+            BookListService secondBookList = new BookListService();
+            secondBookList.Load(storage);
+            Console.WriteLine($"From storage {secondBookList.FindBookByTag(x => x.Year < 2000)}");
+
+            StorageBinarySerializer serializedStorage = new StorageBinarySerializer("booklistserialized.bin");
+            bookList.Save(serializedStorage);
+            BookListService thirdBookList = new BookListService();
+            thirdBookList.Load(serializedStorage);
+            Console.WriteLine($"From serialized storage {secondBookList.FindBookByTag(x => x.Genre.Contains("Satirical"))}");
+
             Console.ReadLine();
         }
     }
