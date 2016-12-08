@@ -89,6 +89,13 @@ namespace Task1UI
             thirdBookList.Load(serializedStorage);
             Console.WriteLine($"From serialized storage {secondBookList.FindBookByTag(x => x.Genre.Contains("Satirical"))}");
 
+            StorageXML xmlStorage = new StorageXML("booklistxml.xml");
+            bookList.Save(xmlStorage);
+            BookListService fourthBookList = new BookListService();
+            fourthBookList.Load(xmlStorage);
+            Console.WriteLine($"From xml storage {secondBookList.FindBookByTag(x => x.Author == "Tolstoy")}");
+
+
             Console.ReadLine();
         }
     }

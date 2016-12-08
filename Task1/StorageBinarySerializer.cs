@@ -22,7 +22,7 @@ namespace Task1
         private BinaryFormatter formatter;
 
         /// <summary>
-        /// Constructor.
+        /// Constructor. Initializes <see cref="formatter"> as BinaryFormatter.
         /// </summary>
         /// <param name="fileName">Path to file for storage.</param>
         /// <exception cref="ArgumentException">

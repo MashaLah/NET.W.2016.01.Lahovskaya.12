@@ -56,6 +56,8 @@ namespace Task1
             Genre = genre;
         }
 
+        public Book() { }
+
         /// <summary>
         /// Presents string represintation of Book.
         /// </summary>
